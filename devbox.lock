@@ -1,0 +1,57 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "github:NixOS/nixpkgs/nixpkgs-unstable": {
+      "last_modified": "2025-04-13T09:22:33Z",
+      "resolved": "github:NixOS/nixpkgs/18dd725c29603f582cf1900e0d25f9f1063dbf11?lastModified=1744536153&narHash=sha256-awS2zRgF4uTwrOKwwiJcByDzDOdo3Q1rPZbiHQg%2FN38%3D"
+    },
+    "kubeconform@0.6.7": {
+      "last_modified": "2025-04-17T05:47:26Z",
+      "resolved": "github:NixOS/nixpkgs/ebe4301cbd8f81c4f8d3244b3632338bbeb6d49c#kubeconform",
+      "source": "devbox-search",
+      "version": "0.6.7",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/39nyhvxm0fj2bqpy1hb0wp1mj6drgw6k-kubeconform-0.6.7",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/39nyhvxm0fj2bqpy1hb0wp1mj6drgw6k-kubeconform-0.6.7"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/72f1zk50h6hyqkazsyvl2wh7j86cc09d-kubeconform-0.6.7",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/72f1zk50h6hyqkazsyvl2wh7j86cc09d-kubeconform-0.6.7"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/c6cw1adkp0vgksqk30f34lyy72lqzkxm-kubeconform-0.6.7",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/c6cw1adkp0vgksqk30f34lyy72lqzkxm-kubeconform-0.6.7"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/nh3gh60ankn2j94rz8k2fiz2y3syqqfg-kubeconform-0.6.7",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/nh3gh60ankn2j94rz8k2fiz2y3syqqfg-kubeconform-0.6.7"
+        }
+      }
+    }
+  }
+}
