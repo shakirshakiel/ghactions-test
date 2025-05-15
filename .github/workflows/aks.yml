@@ -26,14 +26,16 @@ jobs:
         -   name: Run something
             run: |
                 echo "Hello World"
+                echo ${{ inputs.aks_exit_code }}
+                echo ${{ inputs.helm_exit_code }}
                 exit ${{ inputs.aks_exit_code }}
 
-    # helm:
-    #     name: Deploy helm chart
-    #     needs: [ aks ]
-    #     uses: ./.github/workflows/helm.yml
-    #     with:
-    #         helm_exit_code: ${{ inputs.helm_exit_code }}            
+    helm:
+        name: Deploy helm chart
+        needs: [ aks ]
+        uses: ./.github/workflows/helm.yml
+        with:
+            helm_exit_code: "${{ inputs.helm_exit_code }}"
                         
     aks_failure:
         name: Raise incident
