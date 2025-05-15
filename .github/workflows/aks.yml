@@ -33,6 +33,7 @@ jobs:
     helm:
         name: Deploy helm chart
         needs: [ aks ]
+        if: ${{ always() && (needs.aks.result != 'failure') }}
         uses: ./.github/workflows/helm.yml
         with:
             helm_exit_code: "${{ inputs.helm_exit_code }}"
