@@ -25,7 +25,7 @@ jobs:
     
     aks_failure:
         name: Raise incident
-        needs: aks
-        if: needs.aks.result == 'failure'
+        needs: [ aks ]
+        if: ${{ always() && (needs.aks.result == 'failure') }}
         uses: ./.github/workflows/incident.yml
         
