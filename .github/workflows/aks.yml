@@ -27,5 +27,5 @@ jobs:
         name: Raise incident
         needs: aks
         if: needs.aks.result == 'failure'
-        uses: ./.github/workflows/incident.yaml
+        uses: ./.github/workflows/incident.yml
         
