@@ -1,11 +1,16 @@
 name: Deploy AKS cluster
 on:
-  push:
-    branches:
-      - "*"
-  pull_request:
-    branches:
-      - "*"
+    workflow_dispatch:
+        inputs:
+            aks_exit_code:
+                description: "AKS Exit code"
+                required: true
+                type: number
+            helm_exit_code:
+                description: "Helm Exit code"
+                required: true
+                type: number
+
 
 permissions: read-all
 
@@ -21,8 +26,15 @@ jobs:
         -   name: Run something
             run: |
                 echo "Hello World"
-                exit 1
-    
+                exit ${{ inputs.aks_exit_code }}
+
+    helm:
+        name: Deploy helm chart
+        needs: [ aks ]
+        uses: ./.github/workflows/helm.yml
+        with:
+            helm_exit_code: ${{ inputs.helm_exit_code }}            
+                        
     aks_failure:
         name: Raise incident
         needs: [ aks ]

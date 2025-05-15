@@ -1,0 +1,31 @@
+name: Deploy Helm chart in AKS cluster
+on:
+  workflow_call:
+        inputs:
+            helm_exit_code:
+                description: "Helm Exit code"
+                required: true
+                type: number
+
+permissions: read-all
+
+jobs:
+  
+    helm:
+        name: Deploy Helm chart
+        runs-on: ubuntu-latest
+        steps:
+        -   name: Checkout
+            uses: actions/checkout@v4
+
+        -   name: Run something
+            run: |
+                echo "Hello World"
+                exit ${{ inputs.helm_exit_code }}
+
+    helm_failure:
+        name: Raise incident
+        needs: [ helm ]
+        if: ${{ always() && (needs.helm.result == 'failure') }}
+        uses: ./.github/workflows/incident.yml
+        
