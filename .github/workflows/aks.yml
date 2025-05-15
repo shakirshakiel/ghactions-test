@@ -1,0 +1,31 @@
+name: Deploy AKS cluster
+on:
+  push:
+    branches:
+      - "*"
+  pull_request:
+    branches:
+      - "*"
+
+permissions: read-all
+
+jobs:
+  
+    aks:
+        name: Deploy Cluster
+        runs-on: ubuntu-latest
+        steps:
+        -   name: Checkout
+            uses: actions/checkout@v4
+
+        -   name: Run something
+            run: |
+                echo "Hello World"
+                exit 1
+    
+    aks_failure:
+        name: Raise incident
+        needs: aks
+        if: needs.aks.result == 'failure'
+        uses: ./.github/workflows/incident.yaml
+        
