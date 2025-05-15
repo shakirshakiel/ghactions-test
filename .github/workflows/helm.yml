@@ -5,7 +5,7 @@ on:
             helm_exit_code:
                 description: "Helm Exit code"
                 required: true
-                type: number
+                type: string
 
 permissions: read-all
 
