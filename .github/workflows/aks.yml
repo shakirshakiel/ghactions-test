@@ -28,12 +28,12 @@ jobs:
                 echo "Hello World"
                 exit ${{ inputs.aks_exit_code }}
 
-    helm:
-        name: Deploy helm chart
-        needs: [ aks ]
-        uses: ./.github/workflows/helm.yml
-        with:
-            helm_exit_code: ${{ inputs.helm_exit_code }}            
+    # helm:
+    #     name: Deploy helm chart
+    #     needs: [ aks ]
+    #     uses: ./.github/workflows/helm.yml
+    #     with:
+    #         helm_exit_code: ${{ inputs.helm_exit_code }}            
                         
     aks_failure:
         name: Raise incident
