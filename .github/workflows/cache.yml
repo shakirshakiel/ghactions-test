@@ -21,7 +21,7 @@ jobs:
       
       - name: Print cache hit
         shell: bash
-        run: echo "Cache hit: ${{ steps.cache.outputs.cache-hit }}"
+        run: echo "Cache hit = ${{ steps.cache.outputs.cache-hit }}"
       
       - name: Run test
         shell: bash
