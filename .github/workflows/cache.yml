@@ -1,0 +1,28 @@
+name: Deploy Helm chart in AKS cluster
+on:
+  workflow_dispatch:
+
+permissions: read-all
+
+jobs:
+  cache:
+    name: Cache
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cache file
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: test
+          key: ${{ runner.os }}-cache
+      
+      - name: Print cache hit
+        shell: bash
+        run: echo "Cache hit: ${{ steps.cache.outputs.cache-hit }}"
+      
+      - name: Run test
+        shell: bash
+        run: make test
