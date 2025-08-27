@@ -2,12 +2,8 @@
 name: Kubeconform
 
 on:
-  push:
-    branches:
-      - "*"
-  pull_request:
-    branches:
-      - "*"
+  workflow_dispatch:
+
 permissions: read-all
 
 env:

@@ -1,11 +1,5 @@
 name: Raise incident
 on:
-  push:
-    branches:
-      - "*"
-  pull_request:
-    branches:
-      - "*"
   workflow_call:
 
 permissions: read-all
